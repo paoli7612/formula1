@@ -9,5 +9,10 @@ class Car:
     def draw(self, surf, main=False):
         self.pos.draw(surf, main, self.color)
 
+    def move(self, v):
+        x,y = v
+        print(x,y)
+        self.pos.add(x, y)
+
     def __str__(self):
         return "[%s] %s" %(str(self.color), self.pos)

@@ -12,6 +12,9 @@ class Player:
         self.name = name
         self.car = Car(x, y, COLORS[color_name])
 
+    def set_dest(self, v):
+        self.car.move(v)
+
     def draw(self, surf, main=False):
         self.car.draw(surf, main)
 
