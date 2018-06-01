@@ -10,6 +10,9 @@ class Dest:
     def __init__(self, x, y):
         self.image = pygame.Surface(conf.DEST_SIZE)
 
+        x = x-1.5
+        y = y-1.5
+
         # grid
         self.image.fill(conf.COLOR_KEY)
         for n in range(0,conf.DEST_TILE+1,conf.TILE):
