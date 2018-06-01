@@ -10,8 +10,8 @@ class Pos:
         self.y = y
         self.t = (x*conf.TILE, y*conf.TILE)
 
-    def draw(self, surf):
-        pygame.draw.circle(surf, conf.COLOR_POS, self.t, conf.RAD_POS)
+    def draw(self, surf, main=False):
+        pygame.draw.circle(surf, conf.COLOR_POS, self.t, conf.RAD_POS + 3*main)
 
     def __str__(self):
         return "%d,%d" %(self.x, self.y)

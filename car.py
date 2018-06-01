@@ -7,7 +7,7 @@ class Car:
         self.color = "red"
 
     def draw(self, surf):
-        self.pos.draw(surf)
+        self.pos.draw(surf, True)
 
     def __str__(self):
         return "[%s] %s" %(self.color, self.pos)
