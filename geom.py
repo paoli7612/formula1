@@ -1,8 +1,6 @@
 import pygame
-COLOR_LINE = (0,255,180)
-COLOR_POS = (255,255,0)
 
-RAD_POS = 4
+import conf
 
 draw_line = pygame.draw.line
 draw_circle = pygame.draw.circle
@@ -11,10 +9,10 @@ class Pos:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.t = (x,y)
+        self.t = (x*conf.TILE, y*conf.TILE)
 
     def draw(self, surf):
-        draw_circle(surf, COLOR_POS, self.t, RAD_POS)
+        draw_circle(surf, conf.COLOR_POS, self.t, conf.RAD_POS)
 
 
 class Line:
@@ -23,17 +21,14 @@ class Line:
         self.end = end
 
     def draw(self, surf):
-        draw_line(surf, COLOR_LINE, self.start.t, self.end.t)
-
-
-
+        draw_line(surf, conf.COLOR_LINE, self.start.t, self.end.t)
 
 if __name__ == "__main__":
     # test
-    s = pygame.display.set_mode((400,400))
+    s = pygame.display.set_mode(conf.SIZE)
     p = Pos(10,10)
     p.draw(s)
-    p1 = Pos(40,40)
+    p1 = Pos(12,12)
     l = Line(p,p1)
     l.draw(s)
 
