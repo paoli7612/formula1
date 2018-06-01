@@ -4,9 +4,12 @@ import conf
 
 class Window:
     def __init__(self):
+        pygame.init()
+        pygame.mixer.init()
         self.screen = pygame.display.set_mode(conf.SIZE)
         pygame.display.set_caption(conf.TITLE)
 
+        # grid
         self.grid = pygame.Surface(conf.SIZE)
         self.grid.fill(conf.COLOR_KEY)
         for x in range(0,conf.WIDTH+1,conf.TILE):
@@ -20,6 +23,8 @@ class Window:
         self.screen.blit(self.grid, (0,0))
         pygame.display.flip()
 
+    def flip(self):
+        pygame.display.flip()
 
 if __name__ == "__main__":
     # test

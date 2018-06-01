@@ -5,5 +5,8 @@ class Player:
         self.name = name
         self.car = Car(x, y)
 
+    def draw(self, surf):
+        self.car.draw(surf)
+
     def __str__(self):
         return "%s - %s" %(self.name, self.car)
