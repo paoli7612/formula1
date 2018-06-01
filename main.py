@@ -2,9 +2,9 @@ from player import Player
 from match import Match
 
 def main():
-    me = Player("lele", 10, 10)
-    you = Player("asd", 10, 12)
-    he = Player("foo", 10, 14)
+    me = Player("lele", 10, 10, "red")
+    you = Player("asd", 10, 12, "green")
+    he = Player("foo", 10, 14, "blue")
 
     m = Match(me,you,he)
     m.start()
