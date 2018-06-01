@@ -14,6 +14,9 @@ class Pos:
     def draw(self, surf):
         draw_circle(surf, conf.COLOR_POS, self.t, conf.RAD_POS)
 
+    def __str__(self):
+        return "%d,%d" %(self.x, self.y)
+
 
 class Line:
     def __init__(self, start, end):
