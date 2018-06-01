@@ -2,8 +2,7 @@ import pygame
 
 import conf
 
-draw_line = pygame.draw.line
-draw_circle = pygame.draw.circle
+
 
 class Pos:
     def __init__(self, x, y):
@@ -12,7 +11,7 @@ class Pos:
         self.t = (x*conf.TILE, y*conf.TILE)
 
     def draw(self, surf):
-        draw_circle(surf, conf.COLOR_POS, self.t, conf.RAD_POS)
+        pygame.draw.circle(surf, conf.COLOR_POS, self.t, conf.RAD_POS)
 
     def __str__(self):
         return "%d,%d" %(self.x, self.y)
@@ -24,7 +23,7 @@ class Line:
         self.end = end
 
     def draw(self, surf):
-        draw_line(surf, conf.COLOR_LINE, self.start.t, self.end.t)
+        pygame.draw.line(surf, conf.COLOR_LINE, self.start.t, self.end.t)
 
 if __name__ == "__main__":
     # test

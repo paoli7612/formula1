@@ -1,6 +1,7 @@
 import pygame
 
 import conf
+from dest import Dest
 
 class Window:
     def __init__(self):
@@ -30,6 +31,10 @@ if __name__ == "__main__":
     # test
     w = Window()
     w.draw()
+    d = Dest(5,5)
+    d.draw(w.screen)
+    pygame.display.flip()
+
 
     import time
     time.sleep(2)

@@ -1,19 +1,17 @@
 from player import Player
 from window import Window
+from event_handler import EventHandler
 
 def main():
     w = Window()
-    p1 = Player("Mario", 5, 7)
-    p2 = Player("Giovanni", 9, 7)
+    p = Player("Mario", 5, 7)
+    e = EventHandler()
 
     w.draw()
-    p1.draw(w.screen)
+    p.draw(w.screen)
     w.flip()
-    print(p1)
-    print(p2)
+    print(e.run())
 
-    import time
-    time.sleep(2)
 
 
 if __name__ == "__main__":
