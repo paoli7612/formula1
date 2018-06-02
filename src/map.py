@@ -1,11 +1,15 @@
 import pickle, os
 
+import conf
+
 class Map:
     def __init__(self, path_map):
         self.path = path_map
         self.data = dict()
-        if not self.exist():
-            self.save()
+        if self.exist():
+            self.load()
+        else: self.save()
+    
 
     def __getitem__(self, key):
         return self.data[key]
@@ -15,6 +19,9 @@ class Map:
 
     def __str__(self):
         return str(self.data)
+
+    def draw(self, surf):
+        surf.blit(self.screen, (0,0))
 
     def exist(self):
         return os.path.exists(self.path)
