@@ -3,13 +3,15 @@
 
 #### Mappa
 
+<img src="doc/img/Schermata del 2018-06-02 11-25-20.png">
+
 #### Partita
 
 #### Comandi
 Utilizzando i primi nove tasti a sinistra della tastiera, il giocatore può decidere una delle 9 opzioni con cui muovere la propria macchina.
 
 <table>
-  <tr><td>**Q**</td><td>**W**</td><td>**E**</td></tr>
-  <tr><td>**A**</td><td>**S**</td><td>**D**</td></tr>
-  <tr><td>**Z**</td><td>**X**</td><td>**C**</td></tr>
+  <tr><td>Q</td><td>W</td><td>E</td></tr>
+  <tr><td>A</td><td>S</td><td>D</td></tr>
+  <tr><td>Z</td><td>X</td><td>C</td></tr>
 </table>
