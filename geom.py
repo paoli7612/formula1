@@ -21,6 +21,9 @@ class Pos:
         self.y += y-1
         self.reset_t()
 
+    def copy(self):
+        return Pos(self.x, self.y)
+
     def __str__(self):
         return "%d,%d" %(self.x, self.y)
 
@@ -30,8 +33,8 @@ class Line:
         self.start = start
         self.end = end
 
-    def draw(self, surf):
-        pygame.draw.line(surf, conf.COLOR_LINE, self.start.t, self.end.t)
+    def draw(self, surf, color):
+        pygame.draw.line(surf, color, self.start.t, self.end.t, 5)
 
 if __name__ == "__main__":
     # test

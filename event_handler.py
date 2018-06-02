@@ -13,6 +13,7 @@ class EventHandler:
     def __init__(self):
         self.clock = pygame.time.Clock()
         self.last_action = None
+        
 
     def get_pos(self, key):
         for y,row in enumerate(KEYS):
