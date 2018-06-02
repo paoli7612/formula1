@@ -1,6 +1,7 @@
 import pickle, os
 
 import conf
+from lines import Lines
 
 class Map:
     def __init__(self, path_map):
@@ -9,7 +10,8 @@ class Map:
         if self.exist():
             self.load()
         else: self.save()
-    
+        self.lines = Lines()
+
 
     def __getitem__(self, key):
         return self.data[key]
@@ -21,7 +23,7 @@ class Map:
         return str(self.data)
 
     def draw(self, surf):
-        surf.blit(self.screen, (0,0))
+        self.lines.draw(surf)
 
     def exist(self):
         return os.path.exists(self.path)
