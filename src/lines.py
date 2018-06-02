@@ -2,7 +2,7 @@ import pygame
 
 import conf
 
-class Travels:
+class Lines:
     def __init__(self, color):
         self.screen = pygame.Surface(conf.SIZE)
         self.screen.fill(conf.COLOR_KEY)
