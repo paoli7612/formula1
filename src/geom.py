@@ -7,6 +7,12 @@ def next_pos(last, current):
     y = current.y*2 - last.y
     return Pos(x, y)
 
+def newLine(p1,p2):
+    "Line from 2 tuple"
+    p1 = Pos(*p1)
+    p2 = Pos(*p2)
+    return Line(p1,p2)
+
 
 class Pos:
     def __init__(self, x, y):

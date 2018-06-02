@@ -16,3 +16,7 @@ class Lines:
 
     def draw(self, surf):
         surf.blit(self.screen, (0,0))
+
+    def reload(self, data):
+        for line in data:
+            self.add(line)

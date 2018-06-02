@@ -6,21 +6,17 @@ from lines import Lines
 class Map:
     def __init__(self, path_map):
         self.path = path_map
-        self.data = dict()
+        self.lines = Lines(conf.COLOR_CONTOURN)
         if self.exist():
             self.load()
-        else: self.save()
-        self.lines = Lines()
+        else:
+            self.save()
 
-
-    def __getitem__(self, key):
-        return self.data[key]
-
-    def __iter__(self):
-        return self.data.values.__iter__()
+    def add(self, line):
+        self.lines.add(line)
 
     def __str__(self):
-        return str(self.data)
+        return str(self.lines)
 
     def draw(self, surf):
         self.lines.draw(surf)
@@ -32,8 +28,9 @@ class Map:
         return self.data.items()
 
     def save(self):
-        pickle.dump(self.data, open(self.path, "wb"))
+        pickle.dump(self.lines.data, open(self.path, "wb"))
 
     def load(self):
         with open(self.path, 'rb') as handle:
-            b = pickle.load(handle)
+            data = pickle.load(handle)
+        self.lines.reload(data)
