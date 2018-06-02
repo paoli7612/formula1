@@ -10,13 +10,14 @@ class Match:
         self.window = Window()
         self.event_handler = EventHandler()
         self.players = players
-        d = Dest(5, 7)
+        self.d = Dest()
 
     def draw(self):
         self.window.draw()
         for player in self.players:
             player.draw(self.window.screen)
         self.current_player.draw(self.window.screen, True)
+        self.d.draw(self.window.screen, self.current_player.get_next_pos())
         pygame.display.flip()
 
     def start(self):

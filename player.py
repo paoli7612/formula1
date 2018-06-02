@@ -18,6 +18,8 @@ class Player:
         self.car.move(v)
         self.travels.add(self.car.current_line)
 
+    def get_next_pos(self):
+        return self.car.get_next_pos()
 
     def draw(self, surf, main=False):
         self.car.draw(surf, main)

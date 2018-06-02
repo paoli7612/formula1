@@ -2,6 +2,12 @@ import pygame
 
 import conf
 
+def next_pos(last, current):
+    print("# NOTE: ", last, current)
+    x = current.x*2 - last.x
+    y = current.y*2 - last.y
+    print("V")
+    return Pos(x, y)
 
 
 class Pos:
