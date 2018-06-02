@@ -2,13 +2,13 @@ import pygame
 
 from window import Window
 from dest import Dest
-from event_handler import EventHandler
+from event_handler import EventHandlerKey
 
 
 class Match:
     def __init__(self, *players):
         self.window = Window()
-        self.event_handler = EventHandler()
+        self.event_handler = EventHandlerKey()
         self.players = players
         self.d = Dest()
 
@@ -32,7 +32,7 @@ class Match:
         self.current_player = self.players[self.turn]
 
     def events(self):
-        v = self.event_handler.run()
+        v = self.event_handler.start()
         if v == "quit":
             self.running = False
         self.last_choice = v
