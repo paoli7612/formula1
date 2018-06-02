@@ -30,6 +30,11 @@ class Pos:
     def copy(self):
         return Pos(self.x, self.y)
 
+    def isOut(self):
+        print(self.x, self.y)
+        if self.x < 0 or self.y < 0 or self.x > conf.TILE_X or self.y > conf.TILE_Y:
+            return True
+
     def __str__(self):
         return "%d,%d" %(self.x, self.y)
 
