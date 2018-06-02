@@ -3,10 +3,8 @@ from match import Match
 
 def main():
     me = Player("lele", 10, 10, "red")
-    you = Player("asd", 10, 12, "green")
-    he = Player("foo", 10, 14, "blue")
 
-    m = Match(me,you,he)
+    m = Match(me)
     m.start()
 
 

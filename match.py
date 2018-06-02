@@ -35,18 +35,17 @@ class Match:
         v = self.event_handler.run()
         if v == "quit":
             self.running = False
-            return
-        if v:
-            self.change_turn()
-            self.draw()
-            pygame.display.flip()
         self.last_choice = v
 
     def update(self):
         if self.last_choice:
             self.current_player.set_dest(self.last_choice)
+            self.change_turn()
 
     def loop(self):
         while self.running:
             self.events()
+            print(self.turn)
             self.update()
+            self.draw()
+            pygame.display.flip()
