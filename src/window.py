@@ -14,9 +14,9 @@ class Window:
         self.grid = pygame.Surface(conf.SIZE)
         self.grid.fill(conf.COLOR_KEY)
         for x in range(0,conf.WIDTH+1,conf.TILE):
-            pygame.draw.line(self.grid,conf.COLOR_GRID,(x,0),(x,conf.HEIGHT),3)
+            pygame.draw.line(self.grid,conf.COLOR_GRID,(x,0),(x,conf.HEIGHT),1)
         for y in range(0,conf.HEIGHT+1,conf.TILE):
-            pygame.draw.line(self.grid,conf.COLOR_GRID,(0,y),(conf.WIDTH,y),3)
+            pygame.draw.line(self.grid,conf.COLOR_GRID,(0,y),(conf.WIDTH,y),1)
         self.grid.set_colorkey(conf.COLOR_KEY)
 
     def draw(self):

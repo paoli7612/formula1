@@ -1,11 +1,12 @@
 from geom import Pos, Line, next_pos
 
 class Car:
-    def __init__(self, x, y, color):
+    def __init__(self, x, y, color, map):
         self.pos = Pos(x,y)
         self.last_pos = Pos(x,y)
         self.inPos = Pos(x,y)
         self.color = color
+        self.map = map
 
     def draw(self, surf, main=False):
         self.pos.draw(surf, main, self.color)
@@ -22,7 +23,6 @@ class Car:
         self.current_line = Line(self.last_pos, self.pos)
 
         if self.pos.isOut():
-            print("out")
             self.pos = self.inPos.copy()
             self.last_pos = self.inPos.copy()
 

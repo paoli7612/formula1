@@ -2,7 +2,7 @@ import pygame
 
 import conf
 
-class Travels:
+class Lines:
     def __init__(self, color):
         self.screen = pygame.Surface(conf.SIZE)
         self.screen.fill(conf.COLOR_KEY)
@@ -16,3 +16,7 @@ class Travels:
 
     def draw(self, surf):
         surf.blit(self.screen, (0,0))
+
+    def reload(self, data):
+        for line in data:
+            self.add(line)

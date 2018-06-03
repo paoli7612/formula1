@@ -3,11 +3,15 @@ import pygame
 import conf
 
 def next_pos(last, current):
-    print("# NOTE: ", last, current)
     x = current.x*2 - last.x
     y = current.y*2 - last.y
-    print("V")
     return Pos(x, y)
+
+def newLine(p1,p2):
+    "Line from 2 tuple"
+    p1 = Pos(*p1)
+    p2 = Pos(*p2)
+    return Line(p1,p2)
 
 
 class Pos:

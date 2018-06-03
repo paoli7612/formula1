@@ -2,22 +2,24 @@ import pygame
 
 from window import Window
 from dest import Dest
-from event_handler import EventHandler
+from event_handler import EventHandlerKey
 
 
 class Match:
-    def __init__(self, *players):
+    def __init__(self, map, *players):
         self.window = Window()
-        self.event_handler = EventHandler()
+        self.event_handler = EventHandlerKey()
         self.players = players
-        self.d = Dest()
+        self.map = map
+        self.dest = Dest()
 
     def draw(self):
         self.window.draw()
+        self.map.draw(self.window.screen)
         for player in self.players:
             player.draw(self.window.screen)
         self.current_player.draw(self.window.screen, True)
-        self.d.draw(self.window.screen, self.current_player.get_next_pos())
+        self.dest.draw(self.window.screen, self.current_player.get_next_pos())
         pygame.display.flip()
 
     def start(self):
@@ -32,7 +34,7 @@ class Match:
         self.current_player = self.players[self.turn]
 
     def events(self):
-        v = self.event_handler.run()
+        v = self.event_handler.start()
         if v == "quit":
             self.running = False
         self.last_choice = v

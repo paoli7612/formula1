@@ -1,0 +1,6 @@
+
+game: main.py
+	python3 $<
+
+map_editor: map_editor.py
+	python3 $<
