@@ -5,21 +5,36 @@ from window import Window
 from geom import newLine
 from event_handler import EventHandlerMouse
 
+class Map_editor:
+    def __init__(self, name_map):
+        self.window = Window()
+        self.map = Map(name_map)
+        self.event_handler = EventHandlerMouse()
 
-def main(name_map):
-    path = os.path.dirname(__file__)
-    path_map = os.path.join(path, "..", "maps", name_map)
-    map = Map(path_map)
-    map.add(newLine((12,16),(10,10)))
-    e = EventHandlerMouse()
-    window = Window()
-    window.draw()
-    map.draw(window.screen)
-    window.flip()
-    e.start()
-    map.save()
+        self.window.draw()
+        self.map.draw(self.window.screen)
+        self.window.flip()
+
+        self.running = True
+        while self.running:
+            p1 = self.event_handler.start()
+            if p1:
+                p2 = self.event_handler.start()
+
+            if not p1 or not p2:
+                self.running = False
+            else:
+                line = newLine(p1,p2)
+
+                self.map.add(line)
+                self.map.draw(self.window.screen)
+
+                self.window.flip()
+
+        self.map.save()
+
 
 if __name__ == "__main__":
-    main("map1")
+    Map_editor("asd")
     import time
     time.sleep(1)

@@ -4,7 +4,10 @@ import conf
 from lines import Lines
 
 class Map:
-    def __init__(self, path_map):
+    def __init__(self, name_map):
+        path = os.path.dirname(__file__)
+        path_folder = os.path.join(path, "..", "maps")
+        path_map = os.path.join(path_folder, name_map)
         self.path = path_map
         self.lines = Lines(conf.COLOR_CONTOURN)
         if self.exist():

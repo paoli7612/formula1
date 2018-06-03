@@ -42,22 +42,32 @@ class EventHandlerKey(EventHandler):
 
 class EventHandlerMouse(EventHandler):
     def event(self, event):
+        # MOUSEMOTION
         if event.type == pygame.MOUSEMOTION:
 
             x,y = event.pos
             x = x//conf.TILE * conf.TILE
             y = y//conf.TILE * conf.TILE
-
             self.last_pos = (x,y)
 
             self.current_screen.blit(self.last_screen, (0,0))
             pygame.draw.circle(self.current_screen,(255,255,0),(x,y),5)
             pygame.display.flip()
 
+        # MOUSEBUTTONDOWN
         if event.type == pygame.MOUSEBUTTONDOWN:
-            print(event.button)
+
             if event.button == 1 and self.last_pos:
+                x,y = self.last_pos
+                x /= conf.TILE
+                y /= conf.TILE
+                self.last_pos = (x,y)
                 self.running = False
+
+        # quit
+        if event.type == pygame.QUIT:
+            self.last_pos = False
+            self.running = False
 
 
     def start(self):
