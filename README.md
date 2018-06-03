@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
 
 #### Mappa
-<img src="doc/img/Schermata del 2018-06-02 11-25-20.png">
+<img src="doc/img/Schermata del 2018-06-03 11-57-12.png">
 
 #### Partita
 
