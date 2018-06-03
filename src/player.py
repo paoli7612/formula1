@@ -9,9 +9,9 @@ COLORS = {
 
 
 class Player:
-    def __init__(self, name, x, y, color_name):
+    def __init__(self, name, x, y, color_name, map):
         self.name = name
-        self.car = Car(x, y, COLORS[color_name])
+        self.car = Car(x, y, COLORS[color_name], map)
         self.lines = Lines(COLORS[color_name])
 
     def set_dest(self, v):

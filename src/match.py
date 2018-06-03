@@ -6,18 +6,20 @@ from event_handler import EventHandlerKey
 
 
 class Match:
-    def __init__(self, *players):
+    def __init__(self, map, *players):
         self.window = Window()
         self.event_handler = EventHandlerKey()
         self.players = players
-        self.d = Dest()
+        self.map = map
+        self.dest = Dest()
 
     def draw(self):
         self.window.draw()
+        self.map.draw(self.window.screen)
         for player in self.players:
             player.draw(self.window.screen)
         self.current_player.draw(self.window.screen, True)
-        self.d.draw(self.window.screen, self.current_player.get_next_pos())
+        self.dest.draw(self.window.screen, self.current_player.get_next_pos())
         pygame.display.flip()
 
     def start(self):

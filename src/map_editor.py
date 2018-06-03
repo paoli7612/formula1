@@ -17,24 +17,16 @@ class Map_editor:
 
         self.running = True
         while self.running:
-            p1 = self.event_handler.start()
-            if p1:
-                p2 = self.event_handler.start()
-
-            if not p1 or not p2:
-                self.running = False
-            else:
-                line = newLine(p1,p2)
-
+            line = self.event_handler.start()
+            if line:
                 self.map.add(line)
                 self.map.draw(self.window.screen)
-
                 self.window.flip()
+            else:
+                self.running = False
 
         self.map.save()
 
 
 if __name__ == "__main__":
-    Map_editor("asd")
-    import time
-    time.sleep(1)
+    Map_editor("map1")
