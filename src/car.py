@@ -22,7 +22,7 @@ class Car:
         self.pos.add(x, y)
         self.current_line = Line(self.last_pos, self.pos)
 
-        if self.pos.isOut():
+        if self.pos.isOut() or self.map.intersect(self):
             self.pos = self.inPos.copy()
             self.last_pos = self.inPos.copy()
 

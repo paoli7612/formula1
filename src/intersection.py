@@ -47,31 +47,36 @@ def calculateIntersectPoint(p1, p2, p3, p4):
    p = getIntersectPoint(p1, p2, p3, p4)
 
    if p is not None:
-       width = p2[0] - p1[0]
-       height = p2[1] - p1[1]
-       r1 = Rect(p1, (width , height))
-       r1.normalize()
+    width = p2[0] - p1[0]
+    height = p2[1] - p1[1]
+    r1 = Rect(p1, (width , height))
+    r1.normalize()
 
-       width = p4[0] - p3[0]
-       height = p4[1] - p3[1]
-       r2 = Rect(p3, (width, height))
-       r2.normalize()
+    width = p4[0] - p3[0]
+    height = p4[1] - p3[1]
+    r2 = Rect(p3, (width, height))
+    r2.normalize()
 
-       tolerance = 1
-        if r1.width &lt; tolerance: r1.width = tolerance
-        if r1.height &lt; tolerance: r1.height = tolerance
-        if r2.width &lt; tolerance: r2.width = tolerance
-        if r2.height &lt; tolerance: r2.height = tolerance
+    tolerance = 1
+    if r1.width < tolerance:
+        r1.width = tolerance
 
-        for point in p:
-            try:
-                res1 = r1.collidepoint(point)
-                res2 = r2.collidepoint(point)
-                if res1 and res2:
-                    point = [int(pp) for pp in point]
-                    return point
-            except:
-                str = "point was invalid  ", point
-                print str
-        return None           
+    if r1.height < tolerance:
+        r1.height = tolerance
+
+    if r2.width < tolerance:
+        r2.width = tolerance
+
+    if r2.height < tolerance:
+        r2.height = tolerance
+
+    for point in p:
+        try:
+            res1 = r1.collidepoint(point)
+            res2 = r2.collidepoint(point)
+            if res1 and res2:
+                point = [int(pp) for pp in point]
+                return point
+        except: pass
+        return None
     else: return None

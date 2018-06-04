@@ -15,6 +15,12 @@ class Map:
         else:
             self.save()
 
+    def intersect(self, car):
+        line = car.current_line
+        for l in self.lines:
+            if line.intersect(l):
+                return True
+
     def add(self, line):
         self.lines.add(line)
 

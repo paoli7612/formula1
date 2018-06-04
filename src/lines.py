@@ -10,6 +10,9 @@ class Lines:
         self.data = list()
         self.color = color
 
+    def __iter__(self):
+        return self.data.__iter__()
+
     def add(self, line):
         line.draw(self.screen, self.color)
         self.data.append(line)

@@ -1,6 +1,8 @@
 import pygame
+from shapely.geometry import LineString
 
 import conf
+from intersection import getIntersectPoint as intersect
 
 def next_pos(last, current):
     x = current.x*2 - last.x
@@ -48,9 +50,20 @@ class Line:
         self.start = start
         self.end = end
 
+    def coords(self):
+        return self.start.x, self.start.y, self.end.x, self.end.y
+
     def draw(self, surf, color):
         pygame.draw.line(surf, color, self.start.t, self.end.t, 5)
 
+    def intersect(self, line):
+        x1,y1,x2,y2 = self.coords()
+        line1 = LineString([(x1,y1),(x2,y2)])
+        x1,y1,x2,y2 = line.coords()
+        line2 = LineString([(x1,y1),(x2,y2)])
+        b = bool(line1.intersection(line2))
+        return b
+        
 if __name__ == "__main__":
     # test
     s = pygame.display.set_mode(conf.SIZE)
