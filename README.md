@@ -21,6 +21,8 @@ if __name__ == "__main__":
     main()
 ```
 
+### Multiplayer
+Un processo **server** riceve le "decisioni" dai vari **client**; esso esegue tutti i calcoli e rimanda ai vari **clien** solo l'intera immagine della finestra, oltre ad un booleano che rappresenta la **fine partita** e quindi se qualcuno ha vinto.
 
 #### Mappa
 <img src="doc/img/Schermata del 2018-06-03 11-57-12.png">
