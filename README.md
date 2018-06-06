@@ -1,5 +1,10 @@
 ## FORMULA 1 - paoli7612
 
+### Requisiti
+- python3
+- pygame
+- shapely
+
 ### Regole
 Se la macchia esce dalla finestra o dal circuito viene riportato nel ultima posizione valida a velocità 0
 
