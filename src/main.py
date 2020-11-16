@@ -3,12 +3,12 @@ from match import Match
 from map import Map
 from server import Server
 
-def main():
-    map = Map("map1")
-    p1 = Player("nome1", 3, 1, "red", map)
-    p2 = Player("nome2", 6, 1, "blue", map)
-    p3 = Player("nome3", 9, 1, "green", map)
-    m = Match(map, p1, p2, p3)
+def main(map_name, *players):
+    map = Map(map_name)
+    pp = list()
+    for name, x, y, color in players:
+        pp.append(Player(name, x, y, color, map))
+    m = Match(map, *pp)
     m.start()
 
 def server():
@@ -24,6 +24,4 @@ def client():
     c.run()
 
 if __name__ == "__main__":
-    #server()
-    #client()
-    main()
+    main("map1", ('name1', 3, 1, 'blue'), ('name2', 6, 1, 'red'), ('name3', 9, 1, 'green'))
