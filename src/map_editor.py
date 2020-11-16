@@ -1,4 +1,4 @@
-import os
+import os, sys
 
 from map import Map
 from window import Window
@@ -25,8 +25,12 @@ class Map_editor:
             else:
                 self.running = False
 
-        self.map.save()
+        if input('save?(Si/No)') == 'Si':
+            self.map.save()
 
 
 if __name__ == "__main__":
-    Map_editor("map1")
+    if len(sys.argv) == 2:
+        Map_editor(sys.argv[1])
+    else:
+        print("add map name as argument")

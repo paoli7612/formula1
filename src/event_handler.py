@@ -58,7 +58,6 @@ class EventHandlerMouse(EventHandler):
 
         # MOUSEBUTTONDOWN
         if event.type == pygame.MOUSEBUTTONDOWN:
-
             if event.button == 1 and self.last_pos:
                 x,y = self.last_pos
                 pygame.draw.circle(self.screen,(255,255,0),(x,y),5)

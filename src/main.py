@@ -24,4 +24,5 @@ def client():
     c.run()
 
 if __name__ == "__main__":
-    main("map1", ('name1', 3, 1, 'blue'), ('name2', 6, 1, 'red'), ('name3', 9, 1, 'green'))
+    #main("map1", ('name1', 3, 1, 'blue'), ('name2', 6, 1, 'red'), ('name3', 9, 1, 'green'))
+    main("map2", ('name1', 3, 3, 'blue'))
